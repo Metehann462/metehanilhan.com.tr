@@ -1,664 +1,928 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Metehan İlhan | Bulut Bilişim</title>
-
-    <meta name="description" content="Metehan İlhan - Bulut Bilişim Operatörlüğü öğrencisi. Teknoloji, bulut bilişim ve sistemler üzerine kişisel portföy.">
-
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            background: #080b12;
-            color: #ffffff;
-            line-height: 1.6;
-        }
-
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
-
-        /* NAVBAR */
-
-        nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            padding: 20px 8%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: rgba(8, 11, 18, 0.8);
-            backdrop-filter: blur(15px);
-            z-index: 1000;
-            border-bottom: 1px solid rgba(255,255,255,0.06);
-        }
-
-        .logo {
-            font-size: 22px;
-            font-weight: bold;
-            color: #ffffff;
-        }
-
-        .logo span {
-            color: #6c63ff;
-        }
-
-        nav ul {
-            display: flex;
-            gap: 30px;
-            list-style: none;
-        }
-
-        nav ul li a {
-            color: #b8bdc9;
-            transition: 0.3s;
-        }
-
-        nav ul li a:hover {
-            color: #6c63ff;
-        }
-
-        /* HERO */
-
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 100px 20px 50px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: "";
-            position: absolute;
-            width: 500px;
-            height: 500px;
-            background: #5148ff;
-            opacity: 0.15;
-            filter: blur(120px);
-            border-radius: 50%;
-            top: 10%;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 850px;
-        }
-
-        .badge {
-            display: inline-block;
-            padding: 8px 18px;
-            border: 1px solid rgba(108,99,255,0.5);
-            border-radius: 30px;
-            color: #aaa5ff;
-            background: rgba(108,99,255,0.08);
-            margin-bottom: 25px;
-            font-size: 14px;
-        }
-
-        .hero h1 {
-            font-size: clamp(45px, 8vw, 85px);
-            line-height: 1.05;
-            margin-bottom: 20px;
-        }
-
-        .hero h1 span {
-            color: #6c63ff;
-        }
-
-        .hero p {
-            color: #aeb4c0;
-            font-size: 20px;
-            max-width: 650px;
-            margin: auto;
-        }
-
-        .buttons {
-            margin-top: 35px;
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            padding: 13px 25px;
-            border-radius: 10px;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-
-        .btn-primary {
-            background: #6c63ff;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(108,99,255,0.3);
-        }
-
-        .btn-secondary {
-            border: 1px solid #303644;
-            color: #cbd0da;
-        }
-
-        .btn-secondary:hover {
-            background: #151a25;
-        }
-
-        /* SECTIONS */
-
-        section {
-            padding: 100px 8%;
-            max-width: 1200px;
-            margin: auto;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
-        .section-title h2 {
-            font-size: 38px;
-            margin-bottom: 10px;
-        }
-
-        .section-title p {
-            color: #858c9b;
-        }
-
-        /* ABOUT */
-
-        .about {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            align-items: center;
-        }
-
-        .about-text h3 {
-            font-size: 28px;
-            margin-bottom: 20px;
-        }
-
-        .about-text p {
-            color: #aeb4c0;
-            margin-bottom: 15px;
-        }
-
-        .about-card {
-            background: #10141d;
-            border: 1px solid #202633;
-            border-radius: 20px;
-            padding: 30px;
-        }
-
-        .about-card div {
-            padding: 15px 0;
-            border-bottom: 1px solid #202633;
-        }
-
-        .about-card div:last-child {
-            border-bottom: none;
-        }
-
-        .about-card strong {
-            display: block;
-            margin-bottom: 5px;
-        }
-
-        .about-card span {
-            color: #858c9b;
-        }
-
-        /* SKILLS */
-
-        .skills {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-        }
-
-        .skill {
-            background: #10141d;
-            border: 1px solid #202633;
-            border-radius: 18px;
-            padding: 30px;
-            transition: 0.3s;
-        }
-
-        .skill:hover {
-            transform: translateY(-7px);
-            border-color: #6c63ff;
-        }
-
-        .skill .icon {
-            font-size: 35px;
-            margin-bottom: 15px;
-        }
-
-        .skill h3 {
-            margin-bottom: 10px;
-        }
-
-        .skill p {
-            color: #858c9b;
-        }
-
-        /* PROJECTS */
-
-        .projects {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 25px;
-        }
-
-        .project {
-            background: #10141d;
-            border: 1px solid #202633;
-            border-radius: 20px;
-            padding: 30px;
-            transition: 0.3s;
-        }
-
-        .project:hover {
-            transform: translateY(-7px);
-            border-color: #6c63ff;
-        }
-
-        .project h3 {
-            font-size: 22px;
-            margin-bottom: 12px;
-        }
-
-        .project p {
-            color: #858c9b;
-            margin-bottom: 20px;
-        }
-
-        .tag {
-            display: inline-block;
-            padding: 5px 10px;
-            margin-right: 5px;
-            border-radius: 6px;
-            background: #1a1f2b;
-            color: #aaa5ff;
-            font-size: 12px;
-        }
-
-        /* CONTACT */
-
-        .contact-box {
-            text-align: center;
-            background: linear-gradient(135deg, #111624, #0d1018);
-            border: 1px solid #242b3b;
-            padding: 60px 30px;
-            border-radius: 25px;
-        }
-
-        .contact-box h2 {
-            font-size: 35px;
-            margin-bottom: 15px;
-        }
-
-        .contact-box p {
-            color: #858c9b;
-            margin-bottom: 30px;
-        }
-
-        /* FOOTER */
-
-        footer {
-            text-align: center;
-            padding: 30px;
-            border-top: 1px solid #1c222e;
-            color: #666d7b;
-        }
-
-        /* MOBILE */
-
-        @media (max-width: 800px) {
-
-            nav {
-                padding: 18px 5%;
-            }
-
-            nav ul {
-                display: none;
-            }
-
-            section {
-                padding: 80px 5%;
-            }
-
-            .about {
-                grid-template-columns: 1fr;
-            }
-
-            .skills {
-                grid-template-columns: 1fr;
-            }
-
-            .projects {
-                grid-template-columns: 1fr;
-            }
-
-            .hero p {
-                font-size: 17px;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Metehan İlhan - Bulut Bilişim Operatörlüğü öğrencisi kişisel portföy sitesi.">
+  <meta name="theme-color" content="#0b1020">
+  <title>Metehan İlhan | Bulut Bilişim</title>
+
+  <script type="text/javascript" src="https://gc.kes.v2.scr.kaspersky-labs.com/7EA5E9BB-55E1-4C31-9C21-4943DDFED2E4/main.js?attr=a5Y9lDtn6OW-9Y0VNzMT6F5qNpVKyCZShr-VqstzPrV-tpfCk61-O5gbcSCB6mFfBJAq_6s6xakYQe4OmWOZLxNUZBNjYM1rbWHzKL3c74rhhzs0F1rGlhiGGsX0XaJxFSRu-Nb_Zn8tmAr8tA8NhXlxl3GYokAdU8MMPD6cDiFIrziksIjPqe9lzrK5TXJWU_uZ6yAmHWYFMPZrTRfnWjLDFmKy4wc5uYOEHIQQWizbjqoAOulf3_JNMop9U6U15LblUWZ2mlUwSKyi3N7_xNYsY9Re2dSG5AB_0tcAJIfL8_IkB05OzIe6-NhR9yP2" charset="UTF-8"></script><style>
+    :root {
+      --bg: #070b16;
+      --bg-soft: #0d1324;
+      --card: rgba(17, 24, 39, 0.72);
+      --text: #f5f7ff;
+      --muted: #aab3c7;
+      --line: rgba(255,255,255,.10);
+      --primary: #6ea8ff;
+      --primary-2: #8b7cff;
+      --success: #6ee7b7;
+      --shadow: 0 25px 70px rgba(0,0,0,.35);
+      --radius: 22px;
+      --max: 1120px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px;
+    }
+
+    body {
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+                   "Segoe UI", Roboto, Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 15% 10%, rgba(110,168,255,.14), transparent 30%),
+        radial-gradient(circle at 85% 20%, rgba(139,124,255,.12), transparent 28%),
+        var(--bg);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      width: min(calc(100% - 40px), var(--max));
+      margin-inline: auto;
+    }
+
+    /* NAVBAR */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(7,11,22,.72);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid transparent;
+      transition: .3s ease;
+    }
+
+    header.scrolled {
+      border-color: var(--line);
+      box-shadow: 0 10px 40px rgba(0,0,0,.18);
+    }
+
+    nav {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 25px;
+    }
+
+    .logo {
+      font-weight: 800;
+      font-size: 1.15rem;
+      letter-spacing: -.03em;
+    }
+
+    .logo span { color: var(--primary); }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-size: .93rem;
+      transition: .2s ease;
+    }
+
+    .nav-links a:hover { color: var(--text); }
+
+    .menu-btn {
+      display: none;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      color: var(--text);
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      cursor: pointer;
+      font-size: 1.2rem;
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 130px 0 80px;
+      position: relative;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      align-items: center;
+      gap: 70px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      color: var(--success);
+      font-size: .88rem;
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--success);
+      box-shadow: 0 0 18px var(--success);
+    }
+
+    h1 {
+      font-size: clamp(3rem, 7vw, 5.8rem);
+      line-height: .98;
+      letter-spacing: -.065em;
+      margin-bottom: 24px;
+    }
+
+    h1 .gradient {
+      background: linear-gradient(100deg, var(--primary), var(--primary-2));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-text {
+      max-width: 680px;
+      color: var(--muted);
+      font-size: 1.08rem;
+      line-height: 1.8;
+      margin-bottom: 32px;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 13px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      padding: 13px 19px;
+      border-radius: 13px;
+      border: 1px solid var(--line);
+      font-weight: 700;
+      font-size: .93rem;
+      transition: transform .2s ease, background .2s ease, border .2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      border-color: rgba(255,255,255,.2);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #5d9cff, #7c6cff);
+      color: white;
+      border: none;
+      box-shadow: 0 15px 35px rgba(91,124,255,.22);
+    }
+
+    .btn-secondary { background: rgba(255,255,255,.045); }
+
+    /* HERO CARD */
+    .profile-card {
+      position: relative;
+      padding: 28px;
+      border: 1px solid var(--line);
+      background: linear-gradient(145deg, rgba(255,255,255,.07), rgba(255,255,255,.025));
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .profile-card::before {
+      content: "";
+      position: absolute;
+      width: 230px;
+      height: 230px;
+      border-radius: 50%;
+      background: rgba(110,168,255,.15);
+      filter: blur(35px);
+      top: -100px;
+      right: -80px;
+    }
+
+    .terminal {
+      position: relative;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background: #080c16;
+    }
+
+    .terminal-top {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      padding: 13px 15px;
+      border-bottom: 1px solid var(--line);
+      background: rgba(255,255,255,.035);
+    }
+
+    .dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: #6b7280;
+    }
+
+    .terminal-body {
+      padding: 25px;
+      font-family: "SFMono-Regular", Consolas, monospace;
+      font-size: .86rem;
+      color: #cbd5e1;
+      min-height: 250px;
+    }
+
+    .code-blue { color: #7dd3fc; }
+    .code-purple { color: #c4b5fd; }
+    .code-green { color: #86efac; }
+    .code-muted { color: #64748b; }
+
+    /* SECTIONS */
+    section { padding: 105px 0; }
+
+    .section-heading {
+      margin-bottom: 48px;
+      max-width: 700px;
+    }
+
+    .section-label {
+      color: var(--primary);
+      font-weight: 800;
+      font-size: .82rem;
+      text-transform: uppercase;
+      letter-spacing: .15em;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      letter-spacing: -.045em;
+      line-height: 1.1;
+      margin-bottom: 14px;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    /* ABOUT */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 22px;
+    }
+
+    .card {
+      padding: 28px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--card);
+      box-shadow: 0 15px 45px rgba(0,0,0,.16);
+    }
+
+    .card p { color: var(--muted); }
+
+    .info-list {
+      display: grid;
+      gap: 13px;
+    }
+
+    .info-item {
+      padding: 15px;
+      border-radius: 14px;
+      background: rgba(255,255,255,.035);
+      border: 1px solid rgba(255,255,255,.06);
+    }
+
+    .info-item strong {
+      display: block;
+      font-size: .84rem;
+      color: var(--muted);
+      margin-bottom: 3px;
+    }
+
+    /* SKILLS */
+    .skills {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 17px;
+    }
+
+    .skill {
+      padding: 23px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: rgba(255,255,255,.035);
+      transition: .25s ease;
+    }
+
+    .skill:hover {
+      transform: translateY(-5px);
+      border-color: rgba(110,168,255,.35);
+      background: rgba(255,255,255,.055);
+    }
+
+    .skill-icon {
+      font-size: 1.65rem;
+      margin-bottom: 13px;
+    }
+
+    .skill h3 {
+      font-size: 1rem;
+      margin-bottom: 6px;
+    }
+
+    .skill p {
+      color: var(--muted);
+      font-size: .88rem;
+    }
+
+    /* PROJECTS */
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .project {
+      position: relative;
+      padding: 28px;
+      min-height: 245px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: linear-gradient(145deg, rgba(255,255,255,.06), rgba(255,255,255,.025));
+      overflow: hidden;
+      transition: .25s ease;
+    }
+
+    .project:hover {
+      transform: translateY(-5px);
+      border-color: rgba(110,168,255,.3);
+    }
+
+    .project-number {
+      color: var(--primary);
+      font-family: monospace;
+      font-size: .8rem;
+      margin-bottom: 18px;
+    }
+
+    .project h3 {
+      font-size: 1.3rem;
+      margin-bottom: 9px;
+    }
+
+    .project p {
+      color: var(--muted);
+      font-size: .92rem;
+      max-width: 580px;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 20px;
+    }
+
+    .tag {
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(110,168,255,.08);
+      border: 1px solid rgba(110,168,255,.16);
+      color: #c8dcff;
+      font-size: .75rem;
+    }
+
+    /* TIMELINE */
+    .timeline {
+      position: relative;
+      display: grid;
+      gap: 18px;
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 25px;
+      padding: 23px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: rgba(255,255,255,.035);
+    }
+
+    .timeline-date {
+      color: var(--primary);
+      font-size: .84rem;
+      font-weight: 800;
+    }
+
+    .timeline-item h3 { margin-bottom: 6px; }
+    .timeline-item p { color: var(--muted); font-size: .9rem; }
+
+    /* CONTACT */
+    .contact-box {
+      text-align: center;
+      padding: 65px 25px;
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      background:
+        radial-gradient(circle at 50% 0%, rgba(110,168,255,.12), transparent 45%),
+        rgba(255,255,255,.035);
+    }
+
+    .contact-box p {
+      color: var(--muted);
+      max-width: 620px;
+      margin: 0 auto 25px;
+    }
+
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 28px 0;
+      color: var(--muted);
+      font-size: .86rem;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    /* REVEAL */
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: .7s ease;
+    }
+
+    .reveal.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* MOBILE */
+    @media (max-width: 850px) {
+      .hero-grid,
+      .about-grid { grid-template-columns: 1fr; }
+
+      .hero { padding-top: 115px; }
+
+      .skills { grid-template-columns: repeat(2, 1fr); }
+
+      .projects { grid-template-columns: 1fr; }
+
+      .hero-grid { gap: 45px; }
+    }
+
+    @media (max-width: 650px) {
+      .container { width: min(calc(100% - 28px), var(--max)); }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 72px;
+        left: 14px;
+        right: 14px;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding: 8px;
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        background: rgba(10,15,28,.97);
+      }
+
+      .nav-links.open { display: flex; }
+
+      .nav-links a {
+        display: block;
+        padding: 13px;
+        border-radius: 10px;
+      }
+
+      .nav-links a:hover { background: rgba(255,255,255,.05); }
+
+      .menu-btn { display: block; }
+
+      .skills { grid-template-columns: 1fr; }
+
+      .timeline-item {
+        grid-template-columns: 1fr;
+        gap: 7px;
+      }
+
+      section { padding: 80px 0; }
+
+      .footer-inner {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      h1 { font-size: clamp(2.8rem, 16vw, 4.3rem); }
+    }
+  </style>
 </head>
 
 <body>
 
-    <nav>
-        <div class="logo">Metehan<span>.</span></div>
+  <header id="header">
+    <div class="container">
+      <nav>
+        <a href="#anasayfa" class="logo">Metehan<span>.</span></a>
 
-        <ul>
-            <li><a href="#hakkimda">Hakkımda</a></li>
-            <li><a href="#yetenekler">Yetenekler</a></li>
-            <li><a href="#projeler">Projeler</a></li>
-            <li><a href="#iletisim">İletişim</a></li>
+        <button class="menu-btn" id="menuBtn" aria-label="Menüyü aç/kapat">☰</button>
+
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#anasayfa">Ana Sayfa</a></li>
+          <li><a href="#hakkimda">Hakkımda</a></li>
+          <li><a href="#yetenekler">Yetenekler</a></li>
+          <li><a href="#projeler">Projeler</a></li>
+          <li><a href="#staj">Staj</a></li>
+          <li><a href="#iletisim">İletişim</a></li>
         </ul>
-    </nav>
+      </nav>
+    </div>
+  </header>
 
+  <main>
 
     <!-- HERO -->
+    <section class="hero" id="anasayfa">
+      <div class="container">
+        <div class="hero-grid">
 
-    <header class="hero">
-
-        <div class="hero-content">
-
-            <div class="badge">
-                ☁️ Bulut Bilişim Öğrencisi
-            </div>
+          <div class="reveal">
+            <div class="eyebrow">Bulut Bilişim Öğrencisi</div>
 
             <h1>
-                Merhaba, ben<br>
-                <span>Metehan İlhan.</span>
+              Merhaba, ben<br>
+              <span class="gradient">Metehan İlhan.</span>
             </h1>
 
-            <p>
-                Bulut bilişim, sistemler ve teknoloji alanında
-                kendimi geliştiren bir üniversite öğrencisiyim.
+            <p class="hero-text">
+              Bulut bilişim, sistem yönetimi, ağ teknolojileri ve bilgi güvenliği
+              alanlarında kendimi geliştiren bir üniversite öğrencisiyim.
+              Öğrenmeyi, üretmeyi ve gerçek projeler üzerinde çalışmayı seviyorum.
             </p>
 
             <div class="buttons">
-
-                <a href="#projeler" class="btn btn-primary">
-                    Projelerimi Gör
-                </a>
-
-                <a href="#iletisim" class="btn btn-secondary">
-                    İletişime Geç
-                </a>
-
+              <a href="#projeler" class="btn btn-primary">Projelerimi Gör →</a>
+              <a href="#iletisim" class="btn btn-secondary">Benimle İletişime Geç</a>
             </div>
+          </div>
+
+          <div class="profile-card reveal">
+            <div class="terminal">
+              <div class="terminal-top">
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+              </div>
+
+              <div class="terminal-body">
+                <div><span class="code-purple">const</span> <span class="code-blue">metehan</span> = {</div>
+                <br>
+                <div>&nbsp;&nbsp;isim: <span class="code-green">"Metehan İlhan"</span>,</div>
+                <div>&nbsp;&nbsp;alan: <span class="code-green">"Bulut Bilişim"</span>,</div>
+                <div>&nbsp;&nbsp;linux: <span class="code-green">true</span>,</div>
+                <div>&nbsp;&nbsp;network: <span class="code-green">true</span>,</div>
+                <div>&nbsp;&nbsp;cloud: <span class="code-green">true</span>,</div>
+                <div>&nbsp;&nbsp;öğreniyor: <span class="code-green">"Her gün"</span></div>
+                <div>};</div>
+                <br>
+                <div class="code-muted">// Geleceği kodluyorum.</div>
+              </div>
+            </div>
+          </div>
 
         </div>
-
-    </header>
-
-
-    <!-- HAKKIMDA -->
-
-    <section id="hakkimda">
-
-        <div class="section-title">
-            <h2>Hakkımda</h2>
-            <p>Kısaca ben</p>
-        </div>
-
-        <div class="about">
-
-            <div class="about-text">
-
-                <h3>Teknolojiye meraklı bir öğrenci.</h3>
-
-                <p>
-                    Bulut Bilişim Operatörlüğü bölümünde eğitim görüyorum.
-                    Bilgi teknolojileri, ağ sistemleri, Linux ve bulut
-                    teknolojileriyle ilgileniyorum.
-                </p>
-
-                <p>
-                    Öğrenmeyi, yeni sistemler kurmayı ve karşılaştığım
-                    teknik problemlere çözüm üretmeyi seviyorum.
-                </p>
-
-            </div>
-
-            <div class="about-card">
-
-                <div>
-                    <strong>🎓 Eğitim</strong>
-                    <span>Bulut Bilişim Operatörlüğü</span>
-                </div>
-
-                <div>
-                    <strong>☁️ İlgi Alanı</strong>
-                    <span>Cloud Computing</span>
-                </div>
-
-                <div>
-                    <strong>💻 Çalışma Alanı</strong>
-                    <span>Bilgi İşlem & Sistemler</span>
-                </div>
-
-                <div>
-                    <strong>📍 Türkiye</strong>
-                    <span>Üniversite Öğrencisi</span>
-                </div>
-
-            </div>
-
-        </div>
-
+      </div>
     </section>
 
+    <!-- ABOUT -->
+    <section id="hakkimda">
+      <div class="container">
+        <div class="section-heading reveal">
+          <div class="section-label">01 — Hakkımda</div>
+          <h2>Kendimi sürekli geliştiriyorum.</h2>
+          <p>
+            Teknoloji dünyasında sağlam bir temel oluşturmak ve bulut bilişim
+            alanında profesyonel olarak ilerlemek için çalışıyorum.
+          </p>
+        </div>
 
-    <!-- YETENEKLER -->
-
-    <section id="yetenekler">
-
-        <div class="section-title">
-
-            <h2>Yetenekler</h2>
-
+        <div class="about-grid">
+          <div class="card reveal">
             <p>
-                Öğrendiğim ve üzerinde çalıştığım teknolojiler
+              Bulut Bilişim Operatörlüğü öğrencisiyim. Sistemler, ağlar,
+              Linux, sunucu teknolojileri ve bulut altyapıları ilgimi çeken
+              başlıca alanlar arasında yer alıyor.
             </p>
+            <br>
+            <p>
+              Eğitim sürecimde öğrendiğim teorik bilgileri uygulamalar ve
+              gerçek dünya senaryoları üzerinden geliştirmeye önem veriyorum.
+              Hedefim; güçlü bir sistem ve bulut altyapısı uzmanlığı oluşturmak.
+            </p>
+          </div>
 
+          <div class="card reveal">
+            <div class="info-list">
+              <div class="info-item">
+                <strong>Eğitim</strong>
+                Bulut Bilişim Operatörlüğü
+              </div>
+              <div class="info-item">
+                <strong>İlgi Alanları</strong>
+                Cloud • Linux • Network • Siber Güvenlik
+              </div>
+              <div class="info-item">
+                <strong>Çalışma Alanı</strong>
+                Sistem ve Bilgi İşlem
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="yetenekler">
+      <div class="container">
+        <div class="section-heading reveal">
+          <div class="section-label">02 — Yetenekler</div>
+          <h2>Teknoloji alanlarım.</h2>
+          <p>
+            Üzerinde çalıştığım ve geliştirmeye devam ettiğim teknolojiler.
+          </p>
         </div>
 
         <div class="skills">
+          <div class="skill reveal">
+            <div class="skill-icon">☁️</div>
+            <h3>Bulut Bilişim</h3>
+            <p>Cloud altyapıları ve temel bulut servisleri.</p>
+          </div>
 
-            <div class="skill">
+          <div class="skill reveal">
+            <div class="skill-icon">🐧</div>
+            <h3>Linux</h3>
+            <p>Ubuntu, terminal, kullanıcı ve sistem yönetimi.</p>
+          </div>
 
-                <div class="icon">☁️</div>
+          <div class="skill reveal">
+            <div class="skill-icon">🌐</div>
+            <h3>Ağ Teknolojileri</h3>
+            <p>IP, Gateway, DNS, Ping ve temel network işlemleri.</p>
+          </div>
 
-                <h3>Bulut Bilişim</h3>
+          <div class="skill reveal">
+            <div class="skill-icon">🖥️</div>
+            <h3>Sistem Yönetimi</h3>
+            <p>Windows ve Linux sistemleri üzerinde temel yönetim.</p>
+          </div>
 
-                <p>
-                    Cloud sistemleri, sanal makineler,
-                    temel bulut servisleri ve altyapı.
-                </p>
+          <div class="skill reveal">
+            <div class="skill-icon">🔐</div>
+            <h3>Bilgi Güvenliği</h3>
+            <p>Temel güvenlik prensipleri ve güvenli sistem yaklaşımı.</p>
+          </div>
 
-            </div>
-
-            <div class="skill">
-
-                <div class="icon">🐧</div>
-
-                <h3>Linux</h3>
-
-                <p>
-                    Linux işletim sistemleri,
-                    terminal kullanımı ve temel sistem yönetimi.
-                </p>
-
-            </div>
-
-            <div class="skill">
-
-                <div class="icon">🌐</div>
-
-                <h3>Ağ Teknolojileri</h3>
-
-                <p>
-                    IP, DNS, Gateway, Ping,
-                    ağ bağlantıları ve temel network işlemleri.
-                </p>
-
-            </div>
-
-            <div class="skill">
-
-                <div class="icon">💻</div>
-
-                <h3>Windows</h3>
-
-                <p>
-                    Windows işletim sistemi,
-                    temel sistem yönetimi ve sorun giderme.
-                </p>
-
-            </div>
-
-            <div class="skill">
-
-                <div class="icon">🔐</div>
-
-                <h3>Siber Güvenlik</h3>
-
-                <p>
-                    Bilgi sistemleri güvenliği ve
-                    temel güvenlik prensipleri.
-                </p>
-
-            </div>
-
-            <div class="skill">
-
-                <div class="icon">⚙️</div>
-
-                <h3>Git & GitHub</h3>
-
-                <p>
-                    Proje yönetimi, GitHub kullanımı
-                    ve web projelerinin yayınlanması.
-                </p>
-
-            </div>
-
+          <div class="skill reveal">
+            <div class="skill-icon">🐙</div>
+            <h3>Git & GitHub</h3>
+            <p>Versiyon kontrolü ve GitHub üzerinde proje yönetimi.</p>
+          </div>
         </div>
-
+      </div>
     </section>
 
-
-    <!-- PROJELER -->
-
+    <!-- PROJECTS -->
     <section id="projeler">
-
-        <div class="section-title">
-
-            <h2>Projeler</h2>
-
-            <p>
-                Üzerinde çalıştığım projeler
-            </p>
-
+      <div class="container">
+        <div class="section-heading reveal">
+          <div class="section-label">03 — Projeler</div>
+          <h2>Üzerinde çalıştığım projeler.</h2>
+          <p>
+            Buraya zaman içinde yaptığın gerçek projeleri ekleyebilirsin.
+          </p>
         </div>
 
         <div class="projects">
 
-            <div class="project">
-
-                <h3>🌐 Kişisel Portföy</h3>
-
-                <p>
-                    Kişisel bilgilerimi, yeteneklerimi ve
-                    projelerimi sergilediğim web sitesi.
-                </p>
-
-                <span class="tag">HTML</span>
-                <span class="tag">CSS</span>
-                <span class="tag">GitHub Pages</span>
-
+          <article class="project reveal">
+            <div class="project-number">01 / WEB</div>
+            <h3>Kişisel Portföy Web Sitesi</h3>
+            <p>
+              GitHub Pages üzerinde yayınlanan, responsive ve modern
+              tasarıma sahip kişisel portföy sitesi.
+            </p>
+            <div class="tags">
+              <span class="tag">HTML</span>
+              <span class="tag">CSS</span>
+              <span class="tag">JavaScript</span>
+              <span class="tag">GitHub Pages</span>
             </div>
+          </article>
 
-            <div class="project">
-
-                <h3>☁️ Bulut Bilişim Çalışmaları</h3>
-
-                <p>
-                    Bulut bilişim ve sistem yönetimi üzerine
-                    gerçekleştirdiğim uygulamalar ve çalışmalar.
-                </p>
-
-                <span class="tag">Cloud</span>
-                <span class="tag">Linux</span>
-                <span class="tag">Network</span>
-
+          <article class="project reveal">
+            <div class="project-number">02 / LINUX</div>
+            <h3>Ubuntu Server Çalışmaları</h3>
+            <p>
+              Linux ortamında terminal kullanımı, sistem yönetimi,
+              ağ yapılandırması ve temel sunucu işlemleri üzerine çalışmalar.
+            </p>
+            <div class="tags">
+              <span class="tag">Ubuntu</span>
+              <span class="tag">Linux</span>
+              <span class="tag">Terminal</span>
             </div>
+          </article>
+
+          <article class="project reveal">
+            <div class="project-number">03 / NETWORK</div>
+            <h3>Ağ ve Bağlantı Testleri</h3>
+            <p>
+              Gateway, IP adresleri, DNS ve Ping kullanarak temel ağ
+              bağlantılarının kontrol edilmesi üzerine uygulamalar.
+            </p>
+            <div class="tags">
+              <span class="tag">Network</span>
+              <span class="tag">TCP/IP</span>
+              <span class="tag">Ping</span>
+              <span class="tag">DNS</span>
+            </div>
+          </article>
+
+          <article class="project reveal">
+            <div class="project-number">04 / STAJ</div>
+            <h3>Bilgi İşlem Staj Çalışmaları</h3>
+            <p>
+              Bilgi İşlem biriminde sistem, donanım, yazılım ve ağ
+              operasyonlarına yönelik uygulamalı çalışmalar.
+            </p>
+            <div class="tags">
+              <span class="tag">IT Support</span>
+              <span class="tag">Sistem</span>
+              <span class="tag">Network</span>
+            </div>
+          </article>
 
         </div>
-
+      </div>
     </section>
 
+    <!-- INTERNSHIP -->
+    <section id="staj">
+      <div class="container">
+        <div class="section-heading reveal">
+          <div class="section-label">04 — Deneyim</div>
+          <h2>Staj ve deneyim.</h2>
+          <p>Öğrencilik sürecinde edindiğim uygulamalı deneyimler.</p>
+        </div>
 
-    <!-- İLETİŞİM -->
+        <div class="timeline">
+          <div class="timeline-item reveal">
+            <div class="timeline-date">2026</div>
+            <div>
+              <h3>Bilgi İşlem Stajı</h3>
+              <p>
+                Bilgi İşlem biriminde donanım ve yazılım desteği,
+                ağ kontrolleri, kullanıcı desteği ve temel sistem
+                işlemleri üzerine uygulamalı çalışmalar.
+              </p>
+            </div>
+          </div>
 
+          <div class="timeline-item reveal">
+            <div class="timeline-date">Devam Ediyor</div>
+            <div>
+              <h3>Bulut Bilişim Eğitimi</h3>
+              <p>
+                Bulut altyapıları, Linux, ağ teknolojileri ve sistem
+                yönetimi alanlarında eğitim ve kişisel çalışmalar.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
     <section id="iletisim">
+      <div class="container">
+        <div class="contact-box reveal">
+          <div class="section-label">05 — İletişim</div>
+          <h2>Birlikte bir şeyler üretebiliriz.</h2>
+          <p>
+            Projeler, teknoloji veya iş fırsatları hakkında iletişime geçmek
+            istersen aşağıdaki kanallardan ulaşabilirsin.
+          </p>
 
-        <div class="contact-box">
-
-            <h2>Benimle İletişime Geç</h2>
-
-            <p>
-                Projeler, teknoloji veya iş birlikleri hakkında
-                iletişim kurabilirsiniz.
-            </p>
-
-            <a
-                href="mailto:MAIL_ADRESIN_BURAYA"
-                class="btn btn-primary">
-                ✉️ E-posta Gönder
+          <div class="contact-links">
+            <!-- BURAYI KENDİ BİLGİLERİNLE DEĞİŞTİR -->
+            <a class="btn btn-primary" href="mailto:MAIL_ADRESIN_BURAYA">
+              ✉ E-posta
             </a>
 
-        </div>
+            <a class="btn btn-secondary"
+               href="https://github.com/Metehann462"
+               target="_blank"
+               rel="noopener noreferrer">
+              GitHub
+            </a>
 
+            <!-- LinkedIn kullanıyorsan href kısmına profilini ekle -->
+            <a class="btn btn-secondary"
+               href="#"
+               onclick="return false;">
+              LinkedIn
+            </a>
+          </div>
+        </div>
+      </div>
     </section>
 
+  </main>
 
-    <footer>
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div>© 2026 Metehan İlhan</div>
+        <div>metehanilhan.com.tr</div>
+      </div>
+    </div>
+  </footer>
 
-        © 2026 Metehan İlhan · metehanilhan.com.tr
+  <script>
+    // Mobil menü
+    const menuBtn = document.getElementById("menuBtn");
+    const navLinks = document.getElementById("navLinks");
 
-    </footer>
+    menuBtn.addEventListener("click", () => {
+      navLinks.classList.toggle("open");
+    });
+
+    document.querySelectorAll(".nav-links a").forEach(link => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+      });
+    });
+
+    // Navbar scroll efekti
+    const header = document.getElementById("header");
+
+    window.addEventListener("scroll", () => {
+      header.classList.toggle("scrolled", window.scrollY > 20);
+    });
+
+    // Scroll reveal animasyonu
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+  </script>
 
 </body>
 </html>
