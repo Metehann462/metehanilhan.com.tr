@@ -3,927 +3,532 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Metehan İlhan - Bulut Bilişim Operatörlüğü öğrencisi kişisel portföy sitesi.">
-  <meta name="theme-color" content="#0b1020">
-  <title>Metehan İlhan | Bulut Bilişim</title>
+  <meta name="description" content="Metehan İlhan — Bulut Bilişim, Linux, Network ve DevOps odaklı kişisel portföy.">
+  <meta name="theme-color" content="#07111f">
+  <meta property="og:title" content="Metehan İlhan | Cloud & DevOps">
+  <meta property="og:description" content="Bulut bilişim, Linux, network ve DevOps alanlarında gelişen kişisel portföy.">
+  <title>Metehan İlhan | Cloud & DevOps</title>
 
-  <style>
-    :root {
-      --bg: #070b16;
-      --bg-soft: #0d1324;
-      --card: rgba(17, 24, 39, 0.72);
-      --text: #f5f7ff;
-      --muted: #aab3c7;
-      --line: rgba(255,255,255,.10);
-      --primary: #6ea8ff;
-      --primary-2: #8b7cff;
-      --success: #6ee7b7;
-      --shadow: 0 25px 70px rgba(0,0,0,.35);
-      --radius: 22px;
-      --max: 1120px;
+  <script type="text/javascript" src="https://gc.kes.v2.scr.kaspersky-labs.com/7EA5E9BB-55E1-4C31-9C21-4943DDFED2E4/main.js?attr=414YYV77zisIUwoirPNGwLAv8eK1LwGbWYIfXCLiMA6459bnrgVdXVLRz3Pc2HwNMD9JdDuK0c-f7jfMDI1Gl-khnqwN_7lgnI1hp_c2651JjYHgHDpmvzBnJJItg8whviJlQAC__Ph241yqIm0cw_wOz44vAIGs-UgmS1zdhHq_vLAdUL3H6C5JMEmaYnR6U70apQMmPA9ZG-FMahuSTrh8yPH9SOj4MW-V91B9NkAmkv2pyj4jTThfQoSkV6XomKVa60lYwHxBviDUH7lcHsX8bWOkwOJveMTk2wNBvZlj1qyvXgMoHc9Gz-1VQkPo" charset="UTF-8"></script><style>
+    :root{
+      --bg:#050a12;
+      --bg2:#091321;
+      --panel:rgba(13,24,39,.72);
+      --panel2:rgba(255,255,255,.045);
+      --text:#f4f7fb;
+      --muted:#9eacbf;
+      --line:rgba(255,255,255,.10);
+      --blue:#62a8ff;
+      --cyan:#59e0d0;
+      --purple:#8f7cff;
+      --green:#69e6a5;
+      --shadow:0 28px 90px rgba(0,0,0,.38);
+      --radius:24px;
+      --max:1160px;
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-
-    html {
-      scroll-behavior: smooth;
-      scroll-padding-top: 90px;
-    }
-
-    body {
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
-                   "Segoe UI", Roboto, Arial, sans-serif;
-      color: var(--text);
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;scroll-padding-top:92px}
+    body{
+      font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+      color:var(--text);
       background:
-        radial-gradient(circle at 15% 10%, rgba(110,168,255,.14), transparent 30%),
-        radial-gradient(circle at 85% 20%, rgba(139,124,255,.12), transparent 28%),
-        var(--bg);
-      line-height: 1.6;
-      overflow-x: hidden;
+        radial-gradient(circle at 8% 0%,rgba(98,168,255,.14),transparent 28%),
+        radial-gradient(circle at 92% 8%,rgba(89,224,208,.09),transparent 25%),
+        linear-gradient(180deg,#050a12 0%,#07111f 52%,#050a12 100%);
+      line-height:1.65;
+      overflow-x:hidden;
     }
-
-    a { color: inherit; text-decoration: none; }
-
-    .container {
-      width: min(calc(100% - 40px), var(--max));
-      margin-inline: auto;
+    body:before{
+      content:"";
+      position:fixed;inset:0;pointer-events:none;opacity:.32;
+      background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
+                       linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+      background-size:50px 50px;
+      mask-image:linear-gradient(to bottom,black,transparent 80%);
     }
+    a{color:inherit;text-decoration:none}
+    button{font:inherit}
+    .container{width:min(calc(100% - 40px),var(--max));margin:auto}
 
-    /* NAVBAR */
-    header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 1000;
-      background: rgba(7,11,22,.72);
-      backdrop-filter: blur(18px);
-      border-bottom: 1px solid transparent;
-      transition: .3s ease;
+    /* NAV */
+    header{
+      position:fixed;top:0;left:0;right:0;z-index:1000;
+      background:rgba(5,10,18,.60);
+      backdrop-filter:blur(18px);
+      border-bottom:1px solid transparent;
+      transition:.3s ease;
     }
-
-    header.scrolled {
-      border-color: var(--line);
-      box-shadow: 0 10px 40px rgba(0,0,0,.18);
+    header.scrolled{border-color:var(--line);box-shadow:0 12px 45px rgba(0,0,0,.20)}
+    nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+    .logo{font-size:1.08rem;font-weight:850;letter-spacing:-.035em}
+    .logo span{color:var(--blue)}
+    .nav-links{display:flex;list-style:none;gap:25px;align-items:center}
+    .nav-links a{font-size:.88rem;color:var(--muted);transition:.2s}
+    .nav-links a:hover{color:var(--text)}
+    .nav-cta{
+      padding:9px 14px;border:1px solid rgba(98,168,255,.30);
+      border-radius:11px;background:rgba(98,168,255,.08);color:#dbeaff!important
     }
-
-    nav {
-      min-height: 72px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 25px;
-    }
-
-    .logo {
-      font-weight: 800;
-      font-size: 1.15rem;
-      letter-spacing: -.03em;
-    }
-
-    .logo span { color: var(--primary); }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 26px;
-      list-style: none;
-    }
-
-    .nav-links a {
-      color: var(--muted);
-      font-size: .93rem;
-      transition: .2s ease;
-    }
-
-    .nav-links a:hover { color: var(--text); }
-
-    .menu-btn {
-      display: none;
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,.04);
-      color: var(--text);
-      width: 42px;
-      height: 42px;
-      border-radius: 12px;
-      cursor: pointer;
-      font-size: 1.2rem;
+    .menu-btn{
+      display:none;width:42px;height:42px;border:1px solid var(--line);border-radius:12px;
+      background:var(--panel2);color:var(--text);cursor:pointer
     }
 
     /* HERO */
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      padding: 130px 0 80px;
-      position: relative;
+    .hero{min-height:100vh;display:flex;align-items:center;padding:125px 0 85px;position:relative}
+    .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;align-items:center;gap:75px}
+    .eyebrow{
+      display:inline-flex;align-items:center;gap:9px;color:var(--green);
+      font-size:.78rem;font-weight:800;letter-spacing:.11em;text-transform:uppercase;margin-bottom:20px
     }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.15fr .85fr;
-      align-items: center;
-      gap: 70px;
+    .eyebrow:before{content:"";width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 18px var(--green)}
+    h1{font-size:clamp(3.3rem,7vw,6.4rem);line-height:.94;letter-spacing:-.075em;margin-bottom:26px}
+    .gradient{
+      background:linear-gradient(100deg,#f6fbff 0%,#73b4ff 45%,#7e76ff 100%);
+      -webkit-background-clip:text;background-clip:text;color:transparent
     }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 9px;
-      color: var(--success);
-      font-size: .88rem;
-      font-weight: 700;
-      margin-bottom: 18px;
+    .hero-text{max-width:700px;color:var(--muted);font-size:1.05rem;line-height:1.85;margin-bottom:31px}
+    .buttons{display:flex;flex-wrap:wrap;gap:12px}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:9px;
+      min-height:46px;padding:12px 17px;border-radius:13px;border:1px solid var(--line);
+      font-weight:750;font-size:.88rem;transition:.22s ease
     }
+    .btn:hover{transform:translateY(-2px);border-color:rgba(255,255,255,.24)}
+    .btn-primary{border:0;background:linear-gradient(135deg,#579eff,#756fff);box-shadow:0 14px 38px rgba(86,126,255,.22)}
+    .btn-ghost{background:rgba(255,255,255,.04)}
 
-    .eyebrow::before {
-      content: "";
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--success);
-      box-shadow: 0 0 18px var(--success);
+    /* PROFILE */
+    .profile-wrap{position:relative}
+    .profile-glow{
+      position:absolute;inset:8% 4% 0;border-radius:40px;
+      background:linear-gradient(135deg,rgba(98,168,255,.25),rgba(143,124,255,.16));
+      filter:blur(28px);transform:scale(.92)
     }
-
-    h1 {
-      font-size: clamp(3rem, 7vw, 5.8rem);
-      line-height: .98;
-      letter-spacing: -.065em;
-      margin-bottom: 24px;
+    .profile-card{
+      position:relative;border:1px solid var(--line);border-radius:30px;
+      padding:12px;background:linear-gradient(145deg,rgba(255,255,255,.09),rgba(255,255,255,.025));
+      box-shadow:var(--shadow);overflow:hidden
     }
-
-    h1 .gradient {
-      background: linear-gradient(100deg, var(--primary), var(--primary-2));
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
+    .profile-photo{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:22px;display:block;filter:saturate(.92)}
+    .profile-meta{
+      position:absolute;left:26px;right:26px;bottom:25px;padding:16px 17px;border-radius:17px;
+      background:rgba(4,9,16,.76);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.12)
     }
+    .profile-meta strong{display:block;font-size:1rem}
+    .profile-meta span{display:block;color:#aebbd0;font-size:.78rem;margin-top:2px}
 
-    .hero-text {
-      max-width: 680px;
-      color: var(--muted);
-      font-size: 1.08rem;
-      line-height: 1.8;
-      margin-bottom: 32px;
-    }
-
-    .buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 13px;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 9px;
-      padding: 13px 19px;
-      border-radius: 13px;
-      border: 1px solid var(--line);
-      font-weight: 700;
-      font-size: .93rem;
-      transition: transform .2s ease, background .2s ease, border .2s ease;
-    }
-
-    .btn:hover {
-      transform: translateY(-2px);
-      border-color: rgba(255,255,255,.2);
-    }
-
-    .btn-primary {
-      background: linear-gradient(135deg, #5d9cff, #7c6cff);
-      color: white;
-      border: none;
-      box-shadow: 0 15px 35px rgba(91,124,255,.22);
-    }
-
-    .btn-secondary { background: rgba(255,255,255,.045); }
-
-    /* HERO CARD */
-    .profile-card {
-      position: relative;
-      padding: 28px;
-      border: 1px solid var(--line);
-      background: linear-gradient(145deg, rgba(255,255,255,.07), rgba(255,255,255,.025));
-      border-radius: 28px;
-      box-shadow: var(--shadow);
-      overflow: hidden;
-    }
-
-    .profile-card::before {
-      content: "";
-      position: absolute;
-      width: 230px;
-      height: 230px;
-      border-radius: 50%;
-      background: rgba(110,168,255,.15);
-      filter: blur(35px);
-      top: -100px;
-      right: -80px;
-    }
-
-    .terminal {
-      position: relative;
-      border-radius: 18px;
-      overflow: hidden;
-      border: 1px solid var(--line);
-      background: #080c16;
-    }
-
-    .terminal-top {
-      display: flex;
-      align-items: center;
-      gap: 7px;
-      padding: 13px 15px;
-      border-bottom: 1px solid var(--line);
-      background: rgba(255,255,255,.035);
-    }
-
-    .dot {
-      width: 9px;
-      height: 9px;
-      border-radius: 50%;
-      background: #6b7280;
-    }
-
-    .terminal-body {
-      padding: 25px;
-      font-family: "SFMono-Regular", Consolas, monospace;
-      font-size: .86rem;
-      color: #cbd5e1;
-      min-height: 250px;
-    }
-
-    .code-blue { color: #7dd3fc; }
-    .code-purple { color: #c4b5fd; }
-    .code-green { color: #86efac; }
-    .code-muted { color: #64748b; }
-
-    /* SECTIONS */
-    section { padding: 105px 0; }
-
-    .section-heading {
-      margin-bottom: 48px;
-      max-width: 700px;
-    }
-
-    .section-label {
-      color: var(--primary);
-      font-weight: 800;
-      font-size: .82rem;
-      text-transform: uppercase;
-      letter-spacing: .15em;
-      margin-bottom: 10px;
-    }
-
-    h2 {
-      font-size: clamp(2rem, 4vw, 3rem);
-      letter-spacing: -.045em;
-      line-height: 1.1;
-      margin-bottom: 14px;
-    }
-
-    .section-heading p {
-      color: var(--muted);
-      font-size: 1rem;
+    /* COMMON */
+    section{padding:112px 0}
+    .section-heading{max-width:760px;margin-bottom:48px}
+    .label{color:var(--blue);font-size:.74rem;font-weight:850;letter-spacing:.17em;text-transform:uppercase;margin-bottom:10px}
+    h2{font-size:clamp(2.1rem,4vw,3.25rem);line-height:1.05;letter-spacing:-.055em;margin-bottom:14px}
+    .section-heading p{color:var(--muted);max-width:650px}
+    .card{
+      border:1px solid var(--line);border-radius:var(--radius);
+      background:var(--panel);box-shadow:0 16px 55px rgba(0,0,0,.15)
     }
 
     /* ABOUT */
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap: 22px;
+    .about-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:20px}
+    .about-copy{padding:31px}
+    .about-copy p{color:var(--muted);font-size:.96rem}
+    .about-copy p+p{margin-top:17px}
+    .facts{padding:20px;display:grid;gap:11px}
+    .fact{
+      padding:15px 16px;border-radius:15px;background:rgba(255,255,255,.035);
+      border:1px solid rgba(255,255,255,.06)
+    }
+    .fact small{display:block;color:#7f8ea5;font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.1em}
+    .fact strong{display:block;margin-top:3px;font-size:.91rem}
+
+    /* STACK */
+    .stack{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .stack-card{padding:24px;border:1px solid var(--line);border-radius:20px;background:rgba(255,255,255,.035);transition:.25s}
+    .stack-card:hover{transform:translateY(-5px);border-color:rgba(98,168,255,.30);background:rgba(255,255,255,.05)}
+    .stack-icon{font-size:1.55rem;margin-bottom:14px}
+    .stack-card h3{font-size:1rem;margin-bottom:7px}
+    .stack-card p{color:var(--muted);font-size:.84rem;line-height:1.65}
+    .pills{display:flex;flex-wrap:wrap;gap:7px;margin-top:14px}
+    .pill{
+      border:1px solid rgba(98,168,255,.16);background:rgba(98,168,255,.06);
+      color:#c8ddff;padding:5px 9px;border-radius:999px;font-size:.69rem
     }
 
-    .card {
-      padding: 28px;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: var(--card);
-      box-shadow: 0 15px 45px rgba(0,0,0,.16);
+    /* WORK */
+    .work-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+    .work{
+      position:relative;padding:27px;min-height:255px;overflow:hidden;
+      border:1px solid var(--line);border-radius:23px;
+      background:linear-gradient(145deg,rgba(255,255,255,.065),rgba(255,255,255,.025));
+      transition:.25s
     }
-
-    .card p { color: var(--muted); }
-
-    .info-list {
-      display: grid;
-      gap: 13px;
+    .work:hover{transform:translateY(-5px);border-color:rgba(98,168,255,.28)}
+    .work:after{
+      content:"";position:absolute;width:150px;height:150px;border-radius:50%;
+      right:-80px;top:-80px;background:rgba(98,168,255,.09);filter:blur(5px)
     }
+    .work-no{font:700 .72rem/1 monospace;color:var(--blue);letter-spacing:.12em;margin-bottom:18px}
+    .work h3{font-size:1.18rem;margin-bottom:8px}
+    .work p{color:var(--muted);font-size:.87rem;max-width:600px}
+    .work-link{display:inline-flex;margin-top:19px;color:#d9e8ff;font-size:.78rem;font-weight:750}
 
-    .info-item {
-      padding: 15px;
-      border-radius: 14px;
-      background: rgba(255,255,255,.035);
-      border: 1px solid rgba(255,255,255,.06);
-    }
-
-    .info-item strong {
-      display: block;
-      font-size: .84rem;
-      color: var(--muted);
-      margin-bottom: 3px;
-    }
-
-    /* SKILLS */
-    .skills {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 17px;
-    }
-
-    .skill {
-      padding: 23px;
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      background: rgba(255,255,255,.035);
-      transition: .25s ease;
-    }
-
-    .skill:hover {
-      transform: translateY(-5px);
-      border-color: rgba(110,168,255,.35);
-      background: rgba(255,255,255,.055);
-    }
-
-    .skill-icon {
-      font-size: 1.65rem;
-      margin-bottom: 13px;
-    }
-
-    .skill h3 {
-      font-size: 1rem;
-      margin-bottom: 6px;
-    }
-
-    .skill p {
-      color: var(--muted);
-      font-size: .88rem;
-    }
-
-    /* PROJECTS */
-    .projects {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
-    }
-
-    .project {
-      position: relative;
-      padding: 28px;
-      min-height: 245px;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: linear-gradient(145deg, rgba(255,255,255,.06), rgba(255,255,255,.025));
-      overflow: hidden;
-      transition: .25s ease;
-    }
-
-    .project:hover {
-      transform: translateY(-5px);
-      border-color: rgba(110,168,255,.3);
-    }
-
-    .project-number {
-      color: var(--primary);
-      font-family: monospace;
-      font-size: .8rem;
-      margin-bottom: 18px;
-    }
-
-    .project h3 {
-      font-size: 1.3rem;
-      margin-bottom: 9px;
-    }
-
-    .project p {
-      color: var(--muted);
-      font-size: .92rem;
-      max-width: 580px;
-    }
-
-    .tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 20px;
-    }
-
-    .tag {
-      padding: 6px 10px;
-      border-radius: 999px;
-      background: rgba(110,168,255,.08);
-      border: 1px solid rgba(110,168,255,.16);
-      color: #c8dcff;
-      font-size: .75rem;
-    }
-
-    /* TIMELINE */
-    .timeline {
-      position: relative;
-      display: grid;
-      gap: 18px;
-    }
-
-    .timeline-item {
-      display: grid;
-      grid-template-columns: 120px 1fr;
-      gap: 25px;
-      padding: 23px;
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      background: rgba(255,255,255,.035);
-    }
-
-    .timeline-date {
-      color: var(--primary);
-      font-size: .84rem;
-      font-weight: 800;
-    }
-
-    .timeline-item h3 { margin-bottom: 6px; }
-    .timeline-item p { color: var(--muted); font-size: .9rem; }
+    /* JOURNEY */
+    .journey{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+    .journey-card{padding:28px}
+    .journey-card h3{margin-bottom:15px}
+    .journey-list{display:grid;gap:14px}
+    .journey-item{display:grid;grid-template-columns:80px 1fr;gap:18px;padding-bottom:15px;border-bottom:1px solid rgba(255,255,255,.07)}
+    .journey-item:last-child{border-bottom:0;padding-bottom:0}
+    .journey-year{color:var(--blue);font-size:.75rem;font-weight:850}
+    .journey-item strong{font-size:.9rem}
+    .journey-item p{color:var(--muted);font-size:.8rem;margin-top:3px}
 
     /* CONTACT */
-    .contact-box {
-      text-align: center;
-      padding: 65px 25px;
-      border: 1px solid var(--line);
-      border-radius: 28px;
-      background:
-        radial-gradient(circle at 50% 0%, rgba(110,168,255,.12), transparent 45%),
-        rgba(255,255,255,.035);
+    .contact{
+      position:relative;overflow:hidden;text-align:center;padding:68px 25px;border:1px solid var(--line);
+      border-radius:30px;background:
+      radial-gradient(circle at 50% -20%,rgba(98,168,255,.18),transparent 50%),rgba(255,255,255,.035)
     }
+    .contact p{max-width:620px;margin:0 auto 26px;color:var(--muted)}
+    .contact-links{display:flex;justify-content:center;flex-wrap:wrap;gap:10px}
 
-    .contact-box p {
-      color: var(--muted);
-      max-width: 620px;
-      margin: 0 auto 25px;
+    footer{border-top:1px solid var(--line);padding:28px 0;color:#78879c;font-size:.78rem}
+    .footer-inner{display:flex;align-items:center;justify-content:space-between;gap:20px}
+
+    .reveal{opacity:0;transform:translateY(20px);transition:.7s ease}
+    .reveal.show{opacity:1;transform:none}
+
+    @media(max-width:900px){
+      .hero-grid,.about-grid,.journey{grid-template-columns:1fr}
+      .hero-grid{gap:48px}
+      .stack{grid-template-columns:repeat(2,1fr)}
     }
-
-    .contact-links {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    /* FOOTER */
-    footer {
-      border-top: 1px solid var(--line);
-      padding: 28px 0;
-      color: var(--muted);
-      font-size: .86rem;
-    }
-
-    .footer-inner {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 20px;
-    }
-
-    /* REVEAL */
-    .reveal {
-      opacity: 0;
-      transform: translateY(22px);
-      transition: .7s ease;
-    }
-
-    .reveal.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* MOBILE */
-    @media (max-width: 850px) {
-      .hero-grid,
-      .about-grid { grid-template-columns: 1fr; }
-
-      .hero { padding-top: 115px; }
-
-      .skills { grid-template-columns: repeat(2, 1fr); }
-
-      .projects { grid-template-columns: 1fr; }
-
-      .hero-grid { gap: 45px; }
-    }
-
-    @media (max-width: 650px) {
-      .container { width: min(calc(100% - 28px), var(--max)); }
-
-      .nav-links {
-        display: none;
-        position: absolute;
-        top: 72px;
-        left: 14px;
-        right: 14px;
-        flex-direction: column;
-        align-items: stretch;
-        gap: 0;
-        padding: 8px;
-        border: 1px solid var(--line);
-        border-radius: 16px;
-        background: rgba(10,15,28,.97);
+    @media(max-width:650px){
+      .container{width:min(calc(100% - 28px),var(--max))}
+      .nav-links{
+        display:none;position:absolute;top:68px;left:14px;right:14px;flex-direction:column;gap:2px;
+        padding:8px;background:rgba(6,12,21,.97);border:1px solid var(--line);border-radius:16px
       }
-
-      .nav-links.open { display: flex; }
-
-      .nav-links a {
-        display: block;
-        padding: 13px;
-        border-radius: 10px;
-      }
-
-      .nav-links a:hover { background: rgba(255,255,255,.05); }
-
-      .menu-btn { display: block; }
-
-      .skills { grid-template-columns: 1fr; }
-
-      .timeline-item {
-        grid-template-columns: 1fr;
-        gap: 7px;
-      }
-
-      section { padding: 80px 0; }
-
-      .footer-inner {
-        flex-direction: column;
-        text-align: center;
-      }
-
-      h1 { font-size: clamp(2.8rem, 16vw, 4.3rem); }
+      .nav-links.open{display:flex}
+      .nav-links a{display:block;width:100%;padding:12px;border-radius:10px}
+      .nav-cta{margin:2px 0}
+      .menu-btn{display:block}
+      .stack,.work-grid{grid-template-columns:1fr}
+      section{padding:82px 0}
+      .footer-inner{flex-direction:column;text-align:center}
+      h1{font-size:clamp(3rem,16vw,4.4rem)}
     }
   </style>
 </head>
 
 <body>
+<header id="header">
+  <div class="container">
+    <nav>
+      <a class="logo" href="#anasayfa">Metehan İlhan<span>.</span></a>
+      <button class="menu-btn" id="menuBtn" aria-label="Menüyü aç/kapat">☰</button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#hakkimda">Hakkımda</a></li>
+        <li><a href="#stack">Teknolojiler</a></li>
+        <li><a href="#calismalar">Çalışmalar</a></li>
+        <li><a href="#yolculuk">Yolculuk</a></li>
+        <li><a class="nav-cta" href="#iletisim">İletişim</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
 
-  <header id="header">
+<main>
+  <section class="hero" id="anasayfa">
     <div class="container">
-      <nav>
-        <a href="#anasayfa" class="logo">Metehan<span>.</span></a>
-
-        <button class="menu-btn" id="menuBtn" aria-label="Menüyü aç/kapat">☰</button>
-
-        <ul class="nav-links" id="navLinks">
-          <li><a href="#anasayfa">Ana Sayfa</a></li>
-          <li><a href="#hakkimda">Hakkımda</a></li>
-          <li><a href="#yetenekler">Yetenekler</a></li>
-          <li><a href="#projeler">Projeler</a></li>
-          <li><a href="#staj">Staj</a></li>
-          <li><a href="#iletisim">İletişim</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-
-  <main>
-
-    <!-- HERO -->
-    <section class="hero" id="anasayfa">
-      <div class="container">
-        <div class="hero-grid">
-
-          <div class="reveal">
-            <div class="eyebrow">Bulut Bilişim Öğrencisi</div>
-
-            <h1>
-              Merhaba, ben<br>
-              <span class="gradient">Metehan İlhan.</span>
-            </h1>
-
-            <p class="hero-text">
-              Bulut bilişim, sistem yönetimi, ağ teknolojileri ve bilgi güvenliği
-              alanlarında kendimi geliştiren bir üniversite öğrencisiyim.
-              Öğrenmeyi, üretmeyi ve gerçek projeler üzerinde çalışmayı seviyorum.
-            </p>
-
-            <div class="buttons">
-              <a href="#projeler" class="btn btn-primary">Projelerimi Gör →</a>
-              <a href="#iletisim" class="btn btn-secondary">Benimle İletişime Geç</a>
-            </div>
-          </div>
-
-          <div class="profile-card reveal">
-            <div class="terminal">
-              <div class="terminal-top">
-                <span class="dot"></span>
-                <span class="dot"></span>
-                <span class="dot"></span>
-              </div>
-
-              <div class="terminal-body">
-                <div><span class="code-purple">const</span> <span class="code-blue">metehan</span> = {</div>
-                <br>
-                <div>&nbsp;&nbsp;isim: <span class="code-green">"Metehan İlhan"</span>,</div>
-                <div>&nbsp;&nbsp;alan: <span class="code-green">"Bulut Bilişim"</span>,</div>
-                <div>&nbsp;&nbsp;linux: <span class="code-green">true</span>,</div>
-                <div>&nbsp;&nbsp;network: <span class="code-green">true</span>,</div>
-                <div>&nbsp;&nbsp;cloud: <span class="code-green">true</span>,</div>
-                <div>&nbsp;&nbsp;öğreniyor: <span class="code-green">"Her gün"</span></div>
-                <div>};</div>
-                <br>
-                <div class="code-muted">// Geleceği kodluyorum.</div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ABOUT -->
-    <section id="hakkimda">
-      <div class="container">
-        <div class="section-heading reveal">
-          <div class="section-label">01 — Hakkımda</div>
-          <h2>Kendimi sürekli geliştiriyorum.</h2>
-          <p>
-            Teknoloji dünyasında sağlam bir temel oluşturmak ve bulut bilişim
-            alanında profesyonel olarak ilerlemek için çalışıyorum.
+      <div class="hero-grid">
+        <div class="reveal">
+          <div class="eyebrow">Cloud • Linux • Network • DevOps</div>
+          <h1>Altyapıyı<br><span class="gradient">öğreniyorum.</span></h1>
+          <p class="hero-text">
+            Ben Metehan İlhan. Bulut Bilişim Operatörlüğü öğrencisiyim.
+            Linux sistemleri, ağ teknolojileri, sistem yönetimi ve bulut altyapıları
+            üzerine çalışıyor; öğrendiklerimi uygulamalı laboratuvarlarla geliştirmeye devam ediyorum.
           </p>
+          <div class="buttons">
+            <a class="btn btn-primary" href="#calismalar">Çalışmalarımı Gör →</a>
+            <a class="btn btn-ghost" href="https://www.linkedin.com/in/metehan-ilhan-79916836a" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+            <a class="btn btn-ghost" href="https://github.com/Metehann462" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+          </div>
         </div>
 
-        <div class="about-grid">
-          <div class="card reveal">
-            <p>
-              Bulut Bilişim Operatörlüğü öğrencisiyim. Sistemler, ağlar,
-              Linux, sunucu teknolojileri ve bulut altyapıları ilgimi çeken
-              başlıca alanlar arasında yer alıyor.
-            </p>
-            <br>
-            <p>
-              Eğitim sürecimde öğrendiğim teorik bilgileri uygulamalar ve
-              gerçek dünya senaryoları üzerinden geliştirmeye önem veriyorum.
-              Hedefim; güçlü bir sistem ve bulut altyapısı uzmanlığı oluşturmak.
-            </p>
-          </div>
-
-          <div class="card reveal">
-            <div class="info-list">
-              <div class="info-item">
-                <strong>Eğitim</strong>
-                Bulut Bilişim Operatörlüğü
-              </div>
-              <div class="info-item">
-                <strong>İlgi Alanları</strong>
-                Cloud • Linux • Network • Siber Güvenlik
-              </div>
-              <div class="info-item">
-                <strong>Çalışma Alanı</strong>
-                Sistem ve Bilgi İşlem
-              </div>
+        <div class="profile-wrap reveal">
+          <div class="profile-glow"></div>
+          <div class="profile-card">
+            <img class="profile-photo" src="metehan-profile.jpg" alt="Metehan İlhan">
+            <div class="profile-meta">
+              <strong>Metehan İlhan</strong>
+              <span>Cloud &amp; DevOps odaklı öğrenci</span>
             </div>
           </div>
         </div>
-      </div>
-    </section>
-
-    <!-- SKILLS -->
-    <section id="yetenekler">
-      <div class="container">
-        <div class="section-heading reveal">
-          <div class="section-label">02 — Yetenekler</div>
-          <h2>Teknoloji alanlarım.</h2>
-          <p>
-            Üzerinde çalıştığım ve geliştirmeye devam ettiğim teknolojiler.
-          </p>
-        </div>
-
-        <div class="skills">
-          <div class="skill reveal">
-            <div class="skill-icon">☁️</div>
-            <h3>Bulut Bilişim</h3>
-            <p>Cloud altyapıları ve temel bulut servisleri.</p>
-          </div>
-
-          <div class="skill reveal">
-            <div class="skill-icon">🐧</div>
-            <h3>Linux</h3>
-            <p>Ubuntu, terminal, kullanıcı ve sistem yönetimi.</p>
-          </div>
-
-          <div class="skill reveal">
-            <div class="skill-icon">🌐</div>
-            <h3>Ağ Teknolojileri</h3>
-            <p>IP, Gateway, DNS, Ping ve temel network işlemleri.</p>
-          </div>
-
-          <div class="skill reveal">
-            <div class="skill-icon">🖥️</div>
-            <h3>Sistem Yönetimi</h3>
-            <p>Windows ve Linux sistemleri üzerinde temel yönetim.</p>
-          </div>
-
-          <div class="skill reveal">
-            <div class="skill-icon">🔐</div>
-            <h3>Bilgi Güvenliği</h3>
-            <p>Temel güvenlik prensipleri ve güvenli sistem yaklaşımı.</p>
-          </div>
-
-          <div class="skill reveal">
-            <div class="skill-icon">🐙</div>
-            <h3>Git & GitHub</h3>
-            <p>Versiyon kontrolü ve GitHub üzerinde proje yönetimi.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- PROJECTS -->
-    <section id="projeler">
-      <div class="container">
-        <div class="section-heading reveal">
-          <div class="section-label">03 — Projeler</div>
-          <h2>Üzerinde çalıştığım projeler.</h2>
-          <p>
-            Buraya zaman içinde yaptığın gerçek projeleri ekleyebilirsin.
-          </p>
-        </div>
-
-        <div class="projects">
-
-          <article class="project reveal">
-            <div class="project-number">01 / WEB</div>
-            <h3>Kişisel Portföy Web Sitesi</h3>
-            <p>
-              GitHub Pages üzerinde yayınlanan, responsive ve modern
-              tasarıma sahip kişisel portföy sitesi.
-            </p>
-            <div class="tags">
-              <span class="tag">HTML</span>
-              <span class="tag">CSS</span>
-              <span class="tag">JavaScript</span>
-              <span class="tag">GitHub Pages</span>
-            </div>
-          </article>
-
-          <article class="project reveal">
-            <div class="project-number">02 / LINUX</div>
-            <h3>Ubuntu Server Çalışmaları</h3>
-            <p>
-              Linux ortamında terminal kullanımı, sistem yönetimi,
-              ağ yapılandırması ve temel sunucu işlemleri üzerine çalışmalar.
-            </p>
-            <div class="tags">
-              <span class="tag">Ubuntu</span>
-              <span class="tag">Linux</span>
-              <span class="tag">Terminal</span>
-            </div>
-          </article>
-
-          <article class="project reveal">
-            <div class="project-number">03 / NETWORK</div>
-            <h3>Ağ ve Bağlantı Testleri</h3>
-            <p>
-              Gateway, IP adresleri, DNS ve Ping kullanarak temel ağ
-              bağlantılarının kontrol edilmesi üzerine uygulamalar.
-            </p>
-            <div class="tags">
-              <span class="tag">Network</span>
-              <span class="tag">TCP/IP</span>
-              <span class="tag">Ping</span>
-              <span class="tag">DNS</span>
-            </div>
-          </article>
-
-          <article class="project reveal">
-            <div class="project-number">04 / STAJ</div>
-            <h3>Bilgi İşlem Staj Çalışmaları</h3>
-            <p>
-              Bilgi İşlem biriminde sistem, donanım, yazılım ve ağ
-              operasyonlarına yönelik uygulamalı çalışmalar.
-            </p>
-            <div class="tags">
-              <span class="tag">IT Support</span>
-              <span class="tag">Sistem</span>
-              <span class="tag">Network</span>
-            </div>
-          </article>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- INTERNSHIP -->
-    <section id="staj">
-      <div class="container">
-        <div class="section-heading reveal">
-          <div class="section-label">04 — Deneyim</div>
-          <h2>Staj ve deneyim.</h2>
-          <p>Öğrencilik sürecinde edindiğim uygulamalı deneyimler.</p>
-        </div>
-
-        <div class="timeline">
-          <div class="timeline-item reveal">
-            <div class="timeline-date">2026</div>
-            <div>
-              <h3>Bilgi İşlem Stajı</h3>
-              <p>
-                Bilgi İşlem biriminde donanım ve yazılım desteği,
-                ağ kontrolleri, kullanıcı desteği ve temel sistem
-                işlemleri üzerine uygulamalı çalışmalar.
-              </p>
-            </div>
-          </div>
-
-          <div class="timeline-item reveal">
-            <div class="timeline-date">Devam Ediyor</div>
-            <div>
-              <h3>Bulut Bilişim Eğitimi</h3>
-              <p>
-                Bulut altyapıları, Linux, ağ teknolojileri ve sistem
-                yönetimi alanlarında eğitim ve kişisel çalışmalar.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="iletisim">
-      <div class="container">
-        <div class="contact-box reveal">
-          <div class="section-label">05 — İletişim</div>
-          <h2>Birlikte bir şeyler üretebiliriz.</h2>
-          <p>
-            Projeler, teknoloji veya iş fırsatları hakkında iletişime geçmek
-            istersen aşağıdaki kanallardan ulaşabilirsin.
-          </p>
-
-          <div class="contact-links">
-            <!-- BURAYI KENDİ BİLGİLERİNLE DEĞİŞTİR -->
-            <a class="btn btn-primary" href="https://mail.google.com/mail/?view=cm&fs=1&to=imetehan407@gmail.com" target="_blank" rel="noopener noreferrer">
-              ✉ E-posta
-            </a>
-
-            <a class="btn btn-secondary"
-               href="https://github.com/Metehann462"
-               target="_blank"
-               rel="noopener noreferrer">
-              GitHub
-            </a>
-
-            <!-- LinkedIn kullanıyorsan href kısmına profilini ekle -->
-            <a class="btn btn-secondary"
-               href="https://www.instagram.com/metehann462/"
-               target="_blank"
-               rel="noopener noreferrer">
-              Instagram
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <footer>
-    <div class="container">
-      <div class="footer-inner">
-        <div>© 2026 Metehan İlhan</div>
-        <div>metehanilhan.com.tr</div>
       </div>
     </div>
-  </footer>
+  </section>
 
-  <script>
-    // Mobil menü
-    const menuBtn = document.getElementById("menuBtn");
-    const navLinks = document.getElementById("navLinks");
+  <section id="hakkimda">
+    <div class="container">
+      <div class="section-heading reveal">
+        <div class="label">01 — Profil</div>
+        <h2>Teknik temellerden bulut altyapılarına.</h2>
+        <p>Öğrenme sürecimi gerçek sistem mantığıyla birleştirerek ilerliyorum.</p>
+      </div>
 
-    menuBtn.addEventListener("click", () => {
-      navLinks.classList.toggle("open");
+      <div class="about-grid">
+        <article class="card about-copy reveal">
+          <p>
+            Bulut Bilişim Operatörlüğü öğrencisiyim. Özellikle Linux, network,
+            sistem yönetimi, bilgi güvenliği ve bulut teknolojileriyle ilgileniyorum.
+          </p>
+          <p>
+            Amacım yalnızca teknolojileri ezberlemek değil; bir sistemin nasıl
+            çalıştığını, nerede hata verebileceğini ve nasıl daha düzenli
+            yönetilebileceğini uygulayarak öğrenmek.
+          </p>
+          <p>
+            Bu portföy, üzerinde çalıştığım teknik konuları ve zaman içinde
+            geliştireceğim Cloud/DevOps projelerini tek bir yerde topluyor.
+          </p>
+        </article>
+
+        <div class="card facts reveal">
+          <div class="fact"><small>Eğitim</small><strong>Bulut Bilişim Operatörlüğü</strong></div>
+          <div class="fact"><small>Lise</small><strong>Silifke Anadolu Lisesi Mezunu</strong></div>
+          <div class="fact"><small>Odak</small><strong>Cloud · Linux · Network · DevOps</strong></div>
+          <div class="fact"><small>Yaklaşım</small><strong>Uygulama · Troubleshooting · Sürekli öğrenme</strong></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="stack">
+    <div class="container">
+      <div class="section-heading reveal">
+        <div class="label">02 — Teknik Alanlar</div>
+        <h2>Çalıştığım teknoloji alanları.</h2>
+        <p>Temel bilgilerimi ileri seviye altyapı ve otomasyon konularına taşımaya odaklanıyorum.</p>
+      </div>
+
+      <div class="stack">
+        <article class="stack-card reveal">
+          <div class="stack-icon">☁️</div>
+          <h3>Cloud</h3>
+          <p>Bulut altyapılarının temel bileşenleri, sanal kaynaklar ve servis mantığı.</p>
+          <div class="pills"><span class="pill">Cloud Fundamentals</span><span class="pill">Infrastructure</span></div>
+        </article>
+
+        <article class="stack-card reveal">
+          <div class="stack-icon">🐧</div>
+          <h3>Linux &amp; Systems</h3>
+          <p>Ubuntu ortamında terminal, kullanıcı/izin yapısı, servisler ve temel sistem yönetimi.</p>
+          <div class="pills"><span class="pill">Ubuntu</span><span class="pill">Bash</span></div>
+        </article>
+
+        <article class="stack-card reveal">
+          <div class="stack-icon">🌐</div>
+          <h3>Networking</h3>
+          <p>IP, gateway, DNS ve bağlantı problemlerinin temel seviyede analiz edilmesi.</p>
+          <div class="pills"><span class="pill">TCP/IP</span><span class="pill">DNS</span><span class="pill">Ping</span></div>
+        </article>
+
+        <article class="stack-card reveal">
+          <div class="stack-icon">⚙️</div>
+          <h3>DevOps</h3>
+          <p>Versiyon kontrolü, otomasyon mantığı ve CI/CD süreçlerinin temelleri.</p>
+          <div class="pills"><span class="pill">Git</span><span class="pill">GitHub</span><span class="pill">CI/CD</span></div>
+        </article>
+
+        <article class="stack-card reveal">
+          <div class="stack-icon">🔐</div>
+          <h3>Security</h3>
+          <p>Güvenli sistem yaklaşımı, erişim kontrolü ve temel bilgi güvenliği prensipleri.</p>
+          <div class="pills"><span class="pill">Access Control</span><span class="pill">Security Basics</span></div>
+        </article>
+
+        <article class="stack-card reveal">
+          <div class="stack-icon">🧰</div>
+          <h3>Virtualization</h3>
+          <p>VirtualBox gibi sanallaştırma ortamlarında işletim sistemi ve laboratuvar çalışmaları.</p>
+          <div class="pills"><span class="pill">VirtualBox</span><span class="pill">VM</span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="calismalar">
+    <div class="container">
+      <div class="section-heading reveal">
+        <div class="label">03 — Teknik Çalışmalar</div>
+        <h2>Gerçek dünya senaryolarına yakın laboratuvarlar.</h2>
+        <p>
+          Bu bölüm, yaptığım ve geliştirmekte olduğum uygulamalı çalışmaların
+          portföy formatındaki karşılığıdır.
+        </p>
+      </div>
+
+      <div class="work-grid">
+        <article class="work reveal">
+          <div class="work-no">01 / LINUX</div>
+          <h3>Linux Sistem Yönetimi Lab</h3>
+          <p>
+            Ubuntu üzerinde kullanıcı ve izin yönetimi, terminal komutları,
+            servis kontrolü, dosya sistemi ve temel sistem yönetimi senaryoları.
+          </p>
+          <div class="pills"><span class="pill">Ubuntu</span><span class="pill">Linux</span><span class="pill">Bash</span></div>
+        </article>
+
+        <article class="work reveal">
+          <div class="work-no">02 / NETWORK</div>
+          <h3>Network Troubleshooting Lab</h3>
+          <p>
+            Gateway ve IP erişiminin kontrolü, ping testleri, DNS sorguları ve
+            bağlantı problemlerinde adım adım hata ayıklama yaklaşımı.
+          </p>
+          <div class="pills"><span class="pill">TCP/IP</span><span class="pill">Gateway</span><span class="pill">DNS</span></div>
+        </article>
+
+        <article class="work reveal">
+          <div class="work-no">03 / CLOUD</div>
+          <h3>Cloud Infrastructure Öğrenme Labı</h3>
+          <p>
+            Sanal makine, network, erişim ve kaynak yönetimi gibi bulut altyapı
+            kavramlarını gerçek bir altyapının çalışma mantığı üzerinden inceleme.
+          </p>
+          <div class="pills"><span class="pill">Cloud</span><span class="pill">VM</span><span class="pill">Infrastructure</span></div>
+        </article>
+
+        <article class="work reveal">
+          <div class="work-no">04 / DEVOPS</div>
+          <h3>Git &amp; CI/CD Öğrenme Projesi</h3>
+          <p>
+            Kod değişikliklerinin Git ile yönetilmesi, GitHub üzerinde tutulması
+            ve otomatikleştirilmiş build/test/deployment mantığının incelenmesi.
+          </p>
+          <div class="pills"><span class="pill">Git</span><span class="pill">GitHub</span><span class="pill">CI/CD</span></div>
+        </article>
+
+        <article class="work reveal">
+          <div class="work-no">05 / WEB</div>
+          <h3>GitHub Pages Portfolio</h3>
+          <p>
+            Kişisel alan adım üzerinde yayınlanan, responsive tasarıma sahip
+            Cloud/DevOps odaklı portföy web sitesi.
+          </p>
+          <div class="pills"><span class="pill">HTML</span><span class="pill">CSS</span><span class="pill">JavaScript</span><span class="pill">GitHub Pages</span></div>
+          <a class="work-link" href="https://github.com/Metehann462/metehanilhan.com.tr" target="_blank" rel="noopener noreferrer">GitHub reposunu aç ↗</a>
+        </article>
+
+        <article class="work reveal">
+          <div class="work-no">06 / NEXT</div>
+          <h3>Bir Sonraki Hedef: Otomasyon</h3>
+          <p>
+            Container teknolojileri, monitoring, Infrastructure as Code ve
+            daha gelişmiş CI/CD süreçlerini uygulamalı olarak öğrenme yol haritası.
+          </p>
+          <div class="pills"><span class="pill">Docker</span><span class="pill">Monitoring</span><span class="pill">IaC</span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="yolculuk">
+    <div class="container">
+      <div class="section-heading reveal">
+        <div class="label">04 — Yolculuk</div>
+        <h2>Bugünden geleceğe.</h2>
+        <p>Teknik kariyerimi temel sistem bilgisinden Cloud/DevOps uzmanlığına doğru geliştirmeyi hedefliyorum.</p>
+      </div>
+
+      <div class="journey">
+        <article class="card journey-card reveal">
+          <h3>🎓 Eğitim</h3>
+          <div class="journey-list">
+            <div class="journey-item">
+              <div class="journey-year">MEVCUT</div>
+              <div><strong>Bulut Bilişim Operatörlüğü</strong><p>Cloud, sistem, network ve altyapı temelleri.</p></div>
+            </div>
+            <div class="journey-item">
+              <div class="journey-year">MEZUN</div>
+              <div><strong>Silifke Anadolu Lisesi</strong><p>Ortaöğretim eğitimim.</p></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="card journey-card reveal">
+          <h3>🧭 Öğrenme Yol Haritası</h3>
+          <div class="journey-list">
+            <div class="journey-item">
+              <div class="journey-year">01</div>
+              <div><strong>Linux + Network</strong><p>Güçlü sistem ve bağlantı temeli.</p></div>
+            </div>
+            <div class="journey-item">
+              <div class="journey-year">02</div>
+              <div><strong>Cloud Infrastructure</strong><p>Bulut servisleri ve altyapı mantığı.</p></div>
+            </div>
+            <div class="journey-item">
+              <div class="journey-year">03</div>
+              <div><strong>DevOps + Automation</strong><p>Container, CI/CD, monitoring ve IaC.</p></div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="iletisim">
+    <div class="container">
+      <div class="contact reveal">
+        <div class="label">05 — İletişim</div>
+        <h2>Bir proje mi konuşalım?</h2>
+        <p>
+          Cloud, Linux, network veya teknoloji odaklı bir konu hakkında iletişime
+          geçmek istersen bana aşağıdaki kanallardan ulaşabilirsin.
+        </p>
+        <div class="contact-links">
+          <a class="btn btn-primary" href="https://mail.google.com/mail/?view=cm&fs=1&to=imetehan407@gmail.com" target="_blank" rel="noopener noreferrer">✉ E-posta</a>
+          <a class="btn btn-ghost" href="https://github.com/Metehann462" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+          <a class="btn btn-ghost" href="https://www.linkedin.com/in/metehan-ilhan-79916836a" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+          <a class="btn btn-ghost" href="https://www.instagram.com/metehann462/" target="_blank" rel="noopener noreferrer">Instagram ↗</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div>© 2026 Metehan İlhan</div>
+      <div>metehanilhan.com.tr · Cloud / DevOps Portfolio</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const menuBtn=document.getElementById("menuBtn");
+  const navLinks=document.getElementById("navLinks");
+  menuBtn.addEventListener("click",()=>navLinks.classList.toggle("open"));
+  document.querySelectorAll(".nav-links a").forEach(a=>a.addEventListener("click",()=>navLinks.classList.remove("open")));
+
+  const header=document.getElementById("header");
+  window.addEventListener("scroll",()=>header.classList.toggle("scrolled",window.scrollY>20),{passive:true});
+
+  const observer=new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        entry.target.classList.add("show");
+        observer.unobserve(entry.target);
+      }
     });
-
-    document.querySelectorAll(".nav-links a").forEach(link => {
-      link.addEventListener("click", () => {
-        navLinks.classList.remove("open");
-      });
-    });
-
-    // Navbar scroll efekti
-    const header = document.getElementById("header");
-
-    window.addEventListener("scroll", () => {
-      header.classList.toggle("scrolled", window.scrollY > 20);
-    });
-
-    // Scroll reveal animasyonu
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("show");
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.12 });
-
-    document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
-  </script>
-
+  },{threshold:.12});
+  document.querySelectorAll(".reveal").forEach(el=>observer.observe(el));
+</script>
 </body>
 </html>
