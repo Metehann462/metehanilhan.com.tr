@@ -9,7 +9,7 @@
   <meta property="og:description" content="Bulut bilişim, Linux, network ve DevOps alanlarında gelişen kişisel portföy.">
   <title>Metehan İlhan | Cloud & DevOps</title>
 
-  <script type="text/javascript" src="https://gc.kes.v2.scr.kaspersky-labs.com/7EA5E9BB-55E1-4C31-9C21-4943DDFED2E4/main.js?attr=414YYV77zisIUwoirPNGwLAv8eK1LwGbWYIfXCLiMA6459bnrgVdXVLRz3Pc2HwNMD9JdDuK0c-f7jfMDI1Gl-khnqwN_7lgnI1hp_c2651JjYHgHDpmvzBnJJItg8whviJlQAC__Ph241yqIm0cw_wOz44vAIGs-UgmS1zdhHq_vLAdUL3H6C5JMEmaYnR6U70apQMmPA9ZG-FMahuSTrh8yPH9SOj4MW-V91B9NkAmkv2pyj4jTThfQoSkV6XomKVa60lYwHxBviDUH7lcHsX8bWOkwOJveMTk2wNBvZlj1qyvXgMoHc9Gz-1VQkPo" charset="UTF-8"></script><style>
+  <style>
     :root{
       --bg:#050a12;
       --bg2:#091321;
@@ -112,6 +112,11 @@
       box-shadow:var(--shadow);overflow:hidden
     }
     .profile-photo{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:22px;display:block;filter:saturate(.92)}
+    .profile-photo-secondary{
+      position:absolute;left:27px;top:27px;width:112px;height:140px;object-fit:cover;
+      border-radius:16px;border:3px solid rgba(5,10,18,.88);
+      box-shadow:0 15px 35px rgba(0,0,0,.40);z-index:3;filter:saturate(.95);
+    }
     .profile-meta{
       position:absolute;left:26px;right:26px;bottom:25px;padding:16px 17px;border-radius:17px;
       background:rgba(4,9,16,.76);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.12)
@@ -216,6 +221,7 @@
       .nav-cta{margin:2px 0}
       .menu-btn{display:block}
       .stack,.work-grid{grid-template-columns:1fr}
+      .profile-photo-secondary{width:88px;height:110px;left:22px;top:22px}
       section{padding:82px 0}
       .footer-inner{flex-direction:column;text-align:center}
       h1{font-size:clamp(3rem,16vw,4.4rem)}
@@ -263,6 +269,7 @@
           <div class="profile-glow"></div>
           <div class="profile-card">
             <img class="profile-photo" src="metehan-profile.jpg" alt="Metehan İlhan">
+            <img class="profile-photo-secondary" src="metehan-photo-2.jpg" alt="Metehan İlhan — ikinci fotoğraf">
             <div class="profile-meta">
               <strong>Metehan İlhan</strong>
               <span>Cloud &amp; DevOps odaklı öğrenci</span>
