@@ -8,15 +8,16 @@
   <meta name="author" content="Metehan İlhan">
   <meta name="theme-color" content="#07111f">
   
-  <!-- Favicon / Sekme Logosu -->
-  <link rel="icon" type="image/png" href="logo.png">
+  <!-- Sekme Logosu (Favicon) Eklendi -->
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="apple-touch-icon" href="favicon.png">
 
   <!-- Open Graph / Sosyal Medya -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://metehanilhan.com.tr/">
   <meta property="og:title" content="Metehan İlhan | Cloud & DevOps Profil">
   <meta property="og:description" content="Bulut bilişim, Linux, ağ yönetimi ve DevOps alanlarında gelişen profesyonel teknoloji portföyü.">
-  <meta property="og:image" content="logo.png">
+  <meta property="og:image" content="favicon.png">
   
   <title>Metehan İlhan | Cloud & DevOps</title>
 
@@ -92,8 +93,10 @@
     }
     .brand-logo {
       height: 38px;
-      width: auto;
-      border-radius: 8px;
+      width: 38px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 1px solid rgba(98, 168, 255, 0.4);
       display: inline-block;
       vertical-align: middle;
     }
@@ -269,7 +272,7 @@
     <nav aria-label="Ana Navigasyon">
       <!-- Menüde Logo ve İsim Alanı -->
       <a class="logo" href="#anasayfa" aria-label="Ana Sayfaya Dön">
-        <img src="logo.png" alt="Metehan İlhan Logo" class="brand-logo">
+        <img src="favicon.png" alt="Metehan İlhan Logo" class="brand-logo">
         <span>Metehan İlhan<span>.</span></span>
       </a>
       <button class="menu-btn" id="menuBtn" aria-label="Mobil Menüyü Aç/Kapat">
